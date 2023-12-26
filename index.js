@@ -45,13 +45,7 @@ const app = express();
 const pathToImagesFolder = path.resolve(__dirname, "./images");
 
 app.use(express.json());
-
-const corsOptions = {
-  origin: "https://pet-adoption-client-tau.vercel.app",
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
-
+app.use(cors());
 app.use("/images", express.static(pathToImagesFolder));
 
 app.get("/pets", async (request, response) => {
