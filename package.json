@@ -22,7 +22,6 @@
     "multer-storage-cloudinary": "*",
     "mysql": "*",
     "mysql2": "*",
-    "nodemon": "*",
     "vercel": "*"
   }
 }
