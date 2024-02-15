@@ -2,11 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dbConnection = require("./knex/knex");
 const app = express();
-const usersRouter = require("./routes/usersRoute");
-const petsRouter = require("./routes/petsRoute");
-const petsUsersInteractionRouter = require("./routes/petsUsersInteractionRoute");
 
-app.use(express.json());
 app.use(
   cors({
     origin: [
@@ -15,6 +11,12 @@ app.use(
     ],
   })
 );
+
+const usersRouter = require("./routes/usersRoute");
+const petsRouter = require("./routes/petsRoute");
+const petsUsersInteractionRouter = require("./routes/petsUsersInteractionRoute");
+
+app.use(express.json());
 
 app.use("/users", usersRouter);
 app.use("/pets", petsRouter);
