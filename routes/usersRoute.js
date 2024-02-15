@@ -31,26 +31,21 @@ router.get("/", auth, async (request, response) => {
 router.post(
   "/signup",
   upload.single("picture"),
-
   passwordMatch,
   isNewUser,
   hashPwd,
   async (request, response) => {
-    try {
-      req.body.picture = req.file.path;
+    request.body.picture = request.file.path;
+    delete request.body.reSignUpPass;
 
-      const id = await postUserByModel(request.body);
+    const id = await postUserByModel(request.body);
 
-      if (id !== 0) {
-        response.status(200).send("good");
-        console.log("user added");
-      } else {
-        response.status(500).send("good");
-        console.log("user not added");
-      }
-    } catch {
-      console.error("Error adding user:", err);
-      res.status(500).send("Internal server error");
+    if (id !== 0) {
+      response.status(200).send("good");
+      console.log("user added");
+    } else {
+      response.status(500).send("good");
+      console.log("user not added");
     }
   }
 );
