@@ -7,7 +7,14 @@ const petsRouter = require("./routes/petsRoute");
 const petsUsersInteractionRouter = require("./routes/petsUsersInteractionRoute");
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://pet-adoption-client-eight.vercel.app",
+      "http://localhost:3000",
+    ],
+  })
+);
 
 app.use("/users", usersRouter);
 app.use("/pets", petsRouter);
