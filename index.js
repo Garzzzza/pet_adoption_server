@@ -7,7 +7,7 @@ const petsRouter = require("./routes/petsRoute");
 const petsUsersInteractionRouter = require("./routes/petsUsersInteractionRoute");
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 app.use("/users", usersRouter);
 app.use("/pets", petsRouter);
