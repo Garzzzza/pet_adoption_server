@@ -3,12 +3,11 @@ const cors = require("cors");
 const dbConnection = require("./knex/knex");
 const app = express();
 
+require("dotenv").config();
+
 app.use(
   cors({
-    origin: [
-      "https://pet-adoption-client-eight.vercel.app",
-      "http://localhost:3000",
-    ],
+    origin: process.env.ALLOWED_ORIGINS,
   })
 );
 
