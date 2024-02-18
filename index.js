@@ -4,6 +4,7 @@ const dbConnection = require("./knex/knex");
 const app = express();
 
 app.use(cors());
+app.options("*", cors());
 
 const usersRouter = require("./routes/usersRoute");
 const petsRouter = require("./routes/petsRoute");
