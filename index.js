@@ -3,8 +3,15 @@ const cors = require("cors");
 const dbConnection = require("./knex/knex");
 const app = express();
 
-app.use(cors());
-app.options("*", cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://pet-adoption-client-eight.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 
 const usersRouter = require("./routes/usersRoute");
 const petsRouter = require("./routes/petsRoute");
