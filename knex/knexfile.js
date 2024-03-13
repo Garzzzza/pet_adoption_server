@@ -4,18 +4,15 @@ require('dotenv').config()
 
 
 module.exports = {
-  client: 'mysql',
+  client: 'pg',
   connection: {
     database: process.env.DATABASE_NAME,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASS,
-    host: process.env.MYSQL_HOST,
-    ssl: { rejectUnauthorized: false },
+    user: process.env.PG_USER,
+    password: process.env.PG_PASS,
+    host: process.env.PG_HOST,
+    // ssl: { rejectUnauthorized: false },
   },
-  pool: {
-    min: 2,
-    max: 10
-  },
+
   migrations: {
     tableName: 'knex_migrations',
     directory: pathToMigrations
