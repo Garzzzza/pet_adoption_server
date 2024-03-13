@@ -22,7 +22,7 @@
     "multer-storage-cloudinary": "*",
     "mysql": "*",
     "mysql2": "*",
-    "pg": "^8.11.3",
+    "pg": "*",
     "vercel": "*"
   }
 }

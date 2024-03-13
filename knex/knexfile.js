@@ -10,7 +10,6 @@ module.exports = {
     user: process.env.PG_USER,
     password: process.env.PG_PASS,
     host: process.env.PG_HOST,
-    // ssl: { rejectUnauthorized: false },
   },
 
   migrations: {
