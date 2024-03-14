@@ -21,7 +21,7 @@ dbConnection.migrate.latest().then((migration) => {
     console.log("Connected to DB ");
 
     app.listen(8080, () => {
-      console.log("listening on  http://localhost:8080");
+      console.log("Server Is Listening");
     });
   }
 });

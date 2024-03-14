@@ -10,6 +10,7 @@ module.exports = {
     user: process.env.PG_USER,
     password: process.env.PG_PASS,
     host: process.env.PG_HOST,
+    ssl: process.env.DATABASE_NAME === "pet_adoption_db" ?null: { rejectUnauthorized: false }  ,
   },
 
   migrations: {
