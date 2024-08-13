@@ -79,10 +79,12 @@ router.get("/profile", auth, async (req, res) => {
   }
 });
 
-router.put("/update", auth, hashPwd, async (req, res) => {
+router.put("/update", upload.single("picture"), auth, async (req, res) => {
   try {
+    if (req.file) {
+      req.body.picture = req.file.path;
+    }
     await updateUserModel(req.body.userId, req.body);
-    console.log(req.body);
     res.status(200).send("User updated");
     console.log("updated");
   } catch (err) {

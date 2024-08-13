@@ -26,6 +26,7 @@ function hashPwd(req, res, next) {
   bcrypt.hash(req.body.signUpPass, saltRounds, (err, hash) => {
     if (err) {
       res.status(400).send("Error hashing password");
+      console.log(err);
     } else {
       req.body.signUpPass = hash;
       next();
